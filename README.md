@@ -6,8 +6,6 @@ AsyncIOT provides:
 
   - This environment also makes it possible to update the firmware *.bin* via WiFi OTA (*Over the Air*). To generate a .bin file from your sketch, go to Sketch menu of the Arduino IDE > Export compiled Binary.
 
-Other possible applications: post data to an IoT cloud server, modify operating parameters of the ESP microcontroller in real time, such as duty cycle PWM, online calculators can be developed, and so on.
-
  To install the ESP32 and ESP8266 boards in Arduino IDE, follow these next instructions:
  In your Arduino IDE, go to File> Preferences. Insert into the "Additional Board Manager URLs":
  * https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json
