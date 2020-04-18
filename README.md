@@ -2,7 +2,7 @@
 
 AsyncIOT provides:
 
-  - an UNIVERSAL HMI (human-machine interface) environment (for ESP32 and ESP8266) in order to interact with processed inputs and outputs using any browser through HTML pages. As an example, the input parameters values are converted to integers, added, multiplied and the results are shown in the output parameters. The number of input and output parameters is also set by the user. 
+  - an UNIVERSAL HMI (human-machine interface) environment sketch for ESP32 and ESP8266 in order to interact with processed inputs and outputs using any browser through HTML pages. As an example, the input parameters values are converted to integers, added, multiplied and the results are shown in the output parameters. The number of input and output parameters is also set by the user. 
 
   - This environment also makes it possible to update the firmware *.bin* via WiFi OTA (*Over the Air*). To generate a .bin file from your sketch, go to Sketch menu of the Arduino IDE > Export compiled Binary.
 
