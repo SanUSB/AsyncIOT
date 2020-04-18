@@ -1,0 +1,21 @@
+{
+  "name": "AsyncIOT",
+  "keywords": "AsyncIOT, IMH, IHM, IO, IoT, OTA, ESP8266, ESP32, Update, SanUSB",
+  "description": "UNIVERSAL HMI (human-machine interface) environment (for ESP32 and ESP8266) in order to interact with processed inputs and outputs using any browser through HTML pages",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/SanuSB/AsyncIOT.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Sandro Jucá",
+      "email": "sandro.juca@gmail.com",
+      "maintainer": true
+    }
+  ],
+  "version": "1.8.12",
+  "frameworks": "arduino",
+  "platforms": "espressif"
+}
