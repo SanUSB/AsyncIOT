@@ -28,12 +28,15 @@ Arduino IDE -> Sketch -> Include Library -> Add .zip Libraries.
  
  You can usually find the installed ESP32 and ESP8266 libraries at:
   
- In Windows:    
+ On Windows:    
 *        C:\Users\UserName\Documents\Arduino\libraries (tested) or 
 *         C:\Program Files(x86)\Arduino\libraries.
      
- In Linux:   
+ On Linux:   
 *       /home/UserName/Arduino/Libraries (tested).
+
+On OSX:
+*       ~/Documents/Arduino/libraries.
 
  In the installed **AsyncIOT** library folder there is an example for testing this proposed tool called **AsyncIOT.ino**.
  
