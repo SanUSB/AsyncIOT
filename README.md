@@ -33,7 +33,7 @@ Arduino IDE -> Sketch -> Include Library -> Add .zip Libraries.
   
  In Windows:    
 *        C:\Users\UserName\Documents\Arduino\libraries (tested) or 
-*         C:\Program Files(x86)\Arduino\libraries
+*         C:\Program Files(x86)\Arduino\libraries.
      
  In Linux:   
 *       /home/UserName/Arduino/Libraries (tested).
