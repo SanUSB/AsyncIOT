@@ -56,11 +56,8 @@ String valor;
 char last_modified[50];
 const int led = 2; //builtin led
 
-const char* ssid = "SanUSB";
-const char* password = "sanusblaese19";
-
-//const char* ssid = "sandro";
-//const char* password = "12345678";
+const char* ssid = "-----------";        //Wifi network
+const char* password = "-------------";
 
 void setup(void) {
   Serial.begin(115200);
