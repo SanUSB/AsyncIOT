@@ -13,7 +13,7 @@ AsyncIOT provides:
  Open the Boards Manager: Go to Tools > Board > Boards Manager:
  Search for ESP32 and press install button for the "ESP32 by Espressif Systems". Also search for ESP8266 and press install button for the "ESP8266 by ESP8266 Community".
  
- The dependencies of the universal AsyncIOT tool are the Assync libraries. For ESP8266 are ESPAsyncTCP and ESPAsyncWebServer at:
+ The dependencies of the universal AsyncIOT tool are the Async libraries. For ESP8266 are ESPAsyncTCP and ESPAsyncWebServer at:
  
  * https://github.com/me-no-dev/ESPAsyncTCP
  * https://github.com/me-no-dev/ESPAsyncWebServer
