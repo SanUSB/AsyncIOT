@@ -56,17 +56,14 @@ String valor;
 char last_modified[50];
 const int led = 2; //builtin led
 
-const char* ssid = "SanUSB";
-const char* password = "sanusblaese19";
-
-//const char* ssid = "sandro";
-//const char* password = "12345678";
+const char* ssid = "-----------";        //Wifi network
+const char* password = "-------------";
 
 void setup(void) {
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
-  pinMode(led, OUTPUT); //colocar para startar o led quando houver reset.
+  pinMode(led, OUTPUT); 
   digitalWrite(led, 1);
 
   // Wait for connection
