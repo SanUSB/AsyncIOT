@@ -38,7 +38,7 @@ Arduino IDE -> Sketch -> Include Library -> Add .zip Libraries.
 On OSX:
 *       ~/Documents/Arduino/libraries.
 
- In the installed **AsyncIOT** library folder there is an example for testing this proposed tool called **AsyncIOT.ino**.
+ In the installed **AsyncIOT** library folder there is an example for testing this proposed tool called **AsyncIOTstart.ino**.
  
  Other possible applications: post data to an IoT cloud server, modify operating parameters of the ESP microcontroller in real time, such as duty cycle PWM, online processing and calculators, etc..
  
