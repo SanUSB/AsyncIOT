@@ -49,21 +49,21 @@ real time, such as duty cycle PWM, online processing and calculators, etc..
 
 AsyncWebServer server(80);
 
-int paramsNr=1; 
-int valorint[10], i=0, sum=0, product=1;
+int paramsNr = 1;
+int valorint[10], i = 0, sum = 0, product = 1;
 String valor;
 
 char last_modified[50];
 const int led = 2; //builtin led
 
-const char* ssid = "-----------";        //Wifi network
-const char* password = "-------------";
+const char * ssid = "-----------"; //Wifi network
+const char * password = "-------------";
 
 void setup(void) {
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
-  pinMode(led, OUTPUT); 
+  pinMode(led, OUTPUT);
   digitalWrite(led, 1);
 
   // Wait for connection
@@ -76,70 +76,72 @@ void setup(void) {
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-  AsyncIOT.sethost(); 
+  AsyncIOT.sethost();
 
-  server.on("/sanusb", HTTP_GET, [](AsyncWebServerRequest *request){ //acesso somente pelo IP/sanusb
-                     AsyncResponseStream *response = request->beginResponseStream("text/html");
-                      //********************************Imprime página********************
-                      response->printf("<meta charset='UTF-8'> <link rel='icon' type='image/x-icon' href='http://sanusb.blogspot.com.br/favicon.ico'/><h2>SanUSB IO parameters processing</h2><form action='/calc'>");
-                      for(i=0;i<paramsNr;i++){
-                      response->printf("Input %d: <input type='text' name='parameter%d' value=''><br>",i,i);  
-                      }
-                      response->printf("<br><br><input type='submit' value='Submit'><br></form>");
-                     //*****Retorno dos Valores - Imprime variáveis globais ara a página HTML********************
-                      response->printf("<br><p><b>Output:</b></p>");
-                      /***************************************************************************************************** 
-                      In this page, input values ​​valorint[i] can be processed. In the case of this example, the input parameters 
-                      are converted to integers, added, multiplied and the results are shown in the output parameters. As other 
-                      applications, online calculators can be developed, post data to a cloud server, modify operating parameters 
-                      of the ESP32 ans ESP8266 microcontrollers in real time, such as duty cycle PWM, and so on.
-                      ******************************************************************************************************/
-                     for(i=0;i<paramsNr;i++){ 
-                     response->printf("Processed value[%d]: %d<br>",i,valorint[i]); //Imprime valores na página
-                     sum += valorint[i];
-                     product *= valorint[i];
-                                             }
-                      response->printf("<br>Sum value: %d<br>",sum); sum=0;//Imprime valor da soma           
-                      response->printf("Product value: %d<br>",product); product = 1;//Imprime valor do produto
-                                           
-                      response->printf("<br><a href='/'>Start Page</a>");
-                      response->printf("<br><p><a href='/param'>Change number of inputs</a></p>");
-                      //response->printf("<p>If it doesn't work, go to Browser History first and clear browsing data</p>");
-                      request->send(response);
-                });
-    
-/*************************************************************************************************************/
- server.on("/calc", HTTP_GET, [](AsyncWebServerRequest *request){
-                    
-                    paramsNr = request->params();                                   
-                    for(i=0;i<paramsNr;i++){ 
-                    AsyncWebParameter* p = request->getParam(i);
-                    valor =(p->value());         
-                    valorint[i]=valor.toInt(); //convert to integer
-                    Serial.printf ("valorint[%d]=%d\n", i, valorint[i]);
-                    Serial.println("------");                                
-                                        }                    
-            
-                    if (paramsNr<=1 && flag==1){ 
-                                                paramsNr=valorint[0]; 
-                                               }
-                    if (paramsNr>1 && flag==1){                                   
-                                                for(i=0;i<paramsNr;i++){
-                                                                      valorint[i]=0; //limpa os dados anteriores                                                      
-                                                                       }
-                                                flag=0; //limpa flag
-                                               }
-                    Serial.printf ("Number of parameters: %d\n", paramsNr);
-                    request->redirect("/sanusb"); //para mostrar os valores  
-              });
+  server.on("/sanusb", HTTP_GET, [](AsyncWebServerRequest * request) { //acesso somente pelo IP/sanusb
+    AsyncResponseStream * response = request - > beginResponseStream("text/html");
+    //********************************Imprime página********************
+    response - > printf("<meta charset='UTF-8'> <link rel='icon' type='image/x-icon' href='http://sanusb.blogspot.com.br/favicon.ico'/><h2>SanUSB IO parameters processing</h2><form action='/calc'>");
+    for (i = 0; i < paramsNr; i++) {
+      response - > printf("Input %d: <input type='text' name='parameter%d' value=''><br>", i, i);
+    }
+    response - > printf("<br><br><input type='submit' value='Submit'><br></form>");
+    //*****Retorno dos Valores - Imprime variáveis globais ara a página HTML********************
+    response - > printf("<br><p><b>Output:</b></p>");
+    /***************************************************************************************************** 
+    In this page, input values ​​valorint[i] can be processed. In the case of this example, the input parameters 
+    are converted to integers, added, multiplied and the results are shown in the output parameters. As other 
+    applications, online calculators can be developed, post data to a cloud server, modify operating parameters 
+    of the ESP32 ans ESP8266 microcontrollers in real time, such as duty cycle PWM, and so on.
+    ******************************************************************************************************/
+    for (i = 0; i < paramsNr; i++) {
+      response - > printf("Processed value[%d]: %d<br>", i, valorint[i]); //Imprime valores na página
+      sum += valorint[i];
+      product *= valorint[i];
+    }
+    response - > printf("<br>Sum value: %d<br>", sum);
+    sum = 0; //Imprime valor da soma           
+    response - > printf("Product value: %d<br>", product);
+    product = 1; //Imprime valor do produto
 
-  AsyncIOT.begin(&server);    
+    response - > printf("<br><a href='/'>Start Page</a>");
+    response - > printf("<br><p><a href='/param'>Change number of inputs</a></p>");
+    //response->printf("<p>If it doesn't work, go to Browser History first and clear browsing data</p>");
+    request - > send(response);
+  });
+
+  /*************************************************************************************************************/
+  server.on("/calc", HTTP_GET, [](AsyncWebServerRequest * request) {
+
+    paramsNr = request - > params();
+    for (i = 0; i < paramsNr; i++) {
+      AsyncWebParameter * p = request - > getParam(i);
+      valor = (p - > value());
+      valorint[i] = valor.toInt(); //convert to integer
+      Serial.printf("valorint[%d]=%d\n", i, valorint[i]);
+      Serial.println("------");
+    }
+
+    if (paramsNr <= 1 && flag == 1) {
+      paramsNr = valorint[0];
+    }
+    if (paramsNr > 1 && flag == 1) {
+      for (i = 0; i < paramsNr; i++) {
+        valorint[i] = 0; //limpa os dados anteriores                                                      
+      }
+      flag = 0; //limpa flag
+    }
+    Serial.printf("Number of parameters: %d\n", paramsNr);
+    request - > redirect("/sanusb"); //para mostrar os valores  
+  });
+
+  AsyncIOT.begin( & server);
   server.begin();
-  Serial.println("HTTP server started"); 
+  Serial.println("HTTP server started");
 }
 
 void loop(void) {
   AsyncIOT.boot();
-  digitalWrite(led,!digitalRead(led)); 
-  delay(500);  
+  digitalWrite(led, !digitalRead(led));
+  delay(500);
 }
