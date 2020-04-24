@@ -79,15 +79,15 @@ void setup(void) {
   AsyncIOT.sethost();
 
   server.on("/sanusb", HTTP_GET, [](AsyncWebServerRequest * request) { //acesso somente pelo IP/sanusb
-    AsyncResponseStream * response = request - > beginResponseStream("text/html");
+    AsyncResponseStream * response = request -> beginResponseStream("text/html");
     //********************************Imprime página********************
-    response - > printf("<meta charset='UTF-8'> <link rel='icon' type='image/x-icon' href='http://sanusb.blogspot.com.br/favicon.ico'/><h2>SanUSB IO parameters processing</h2><form action='/calc'>");
+    response -> printf("<meta charset='UTF-8'> <link rel='icon' type='image/x-icon' href='http://sanusb.blogspot.com.br/favicon.ico'/><h2>SanUSB IO parameters processing</h2><form action='/calc'>");
     for (i = 0; i < paramsNr; i++) {
-      response - > printf("Input %d: <input type='text' name='parameter%d' value=''><br>", i, i);
+      response -> printf("Input %d: <input type='text' name='parameter%d' value=''><br>", i, i);
     }
-    response - > printf("<br><br><input type='submit' value='Submit'><br></form>");
+    response -> printf("<br><br><input type='submit' value='Submit'><br></form>");
     //*****Retorno dos Valores - Imprime variáveis globais ara a página HTML********************
-    response - > printf("<br><p><b>Output:</b></p>");
+    response -> printf("<br><p><b>Output:</b></p>");
     /***************************************************************************************************** 
     In this page, input values ​​valorint[i] can be processed. In the case of this example, the input parameters 
     are converted to integers, added, multiplied and the results are shown in the output parameters. As other 
@@ -95,25 +95,25 @@ void setup(void) {
     of the ESP32 ans ESP8266 microcontrollers in real time, such as duty cycle PWM, and so on.
     ******************************************************************************************************/
     for (i = 0; i < paramsNr; i++) {
-      response - > printf("Processed value[%d]: %d<br>", i, valorint[i]); //Imprime valores na página
+      response -> printf("Processed value[%d]: %d<br>", i, valorint[i]); //Imprime valores na página
       product *= valorint[i];
     }
-    response - > printf("<br>Sum value: %d<br>", sum);
+    response -> printf("<br>Sum value: %d<br>", sum);
     sum = 0; //Imprime valor da soma           
 
-    response - > printf("<br><a href='/'>Start Page</a>");
-    response - > printf("<br><p><a href='/param'>Change number of inputs</a></p>");
+    response -> printf("<br><a href='/'>Start Page</a>");
+    response -> printf("<br><p><a href='/param'>Change number of inputs</a></p>");
     //response->printf("<p>If it doesn't work, go to Browser History first and clear browsing data</p>");
-    request - > send(response);
+    request -> send(response);
   });
 
   /*************************************************************************************************************/
   server.on("/calc", HTTP_GET, [](AsyncWebServerRequest * request) {
 
-    paramsNr = request - > params();
+    paramsNr = request -> params();
     for (i = 0; i < paramsNr; i++) {
-      AsyncWebParameter * p = request - > getParam(i);
-      valor = (p - > value());
+      AsyncWebParameter * p = request -> getParam(i);
+      valor = (p -> value());
       valorint[i] = valor.toInt(); //convert to integer
       Serial.printf("valorint[%d]=%d\n", i, valorint[i]);
       Serial.println("------");
@@ -129,10 +129,10 @@ void setup(void) {
       flag = 0; //limpa flag
     }
     Serial.printf("Number of parameters: %d\n", paramsNr);
-    request - > redirect("/sanusb"); //para mostrar os valores  
+    request -> redirect("/sanusb"); //para mostrar os valores  
   });
 
-  AsyncIOT.begin( & server);
+  AsyncIOT.begin(&server);
   server.begin();
   Serial.println("HTTP server started");
 }
