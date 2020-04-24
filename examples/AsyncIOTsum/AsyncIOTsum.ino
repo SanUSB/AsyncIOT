@@ -96,7 +96,7 @@ void setup(void) {
     ******************************************************************************************************/
     for (i = 0; i < paramsNr; i++) {
       response -> printf("Processed value[%d]: %d<br>", i, valorint[i]); //Imprime valores na página
-      product *= valorint[i];
+      sum += valorint[i];
     }
     response -> printf("<br>Sum value: %d<br>", sum);
     sum = 0; //Imprime valor da soma           
