@@ -135,7 +135,7 @@ void setup(void) {
     request -> redirect("/sanusb"); //para mostrar os valores  
   });
 
-  AsyncIOT.begin( & server);
+  AsyncIOT.begin(&server);
   server.begin();
   Serial.println("HTTP server started");
 }
