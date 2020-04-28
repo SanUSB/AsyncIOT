@@ -13,7 +13,7 @@ AsyncIOT provides:
  Open the Boards Manager: Go to Tools > Board > Boards Manager:
  Search for ESP32 and press install button for the "ESP32 by Espressif Systems". Also search for ESP8266 and press install button for the "ESP8266 by ESP8266 Community".
  
- The dependencies of the universal AsyncIOT tool are the Async libraries. For ESP8266 are ESPAsyncTCP and ESPAsyncWebServer at:
+ The dependencies of the AsyncIOT tool are the Async libraries. For ESP8266 are ESPAsyncTCP and ESPAsyncWebServer at:
  
  * https://github.com/me-no-dev/ESPAsyncTCP
  * https://github.com/me-no-dev/ESPAsyncWebServer
@@ -29,8 +29,7 @@ Arduino IDE -> Sketch -> Include Library -> Add .zip Libraries.
  You can usually find the installed ESP32 and ESP8266 libraries at:
   
  On Windows:    
-*        C:\Users\UserName\Documents\Arduino\libraries (tested) or 
-*         C:\Program Files(x86)\Arduino\libraries.
+*        C:\Users\UserName\Documents\Arduino\libraries (tested).
      
  On Linux:   
 *       /home/UserName/Arduino/Libraries (tested).
