@@ -42,7 +42,8 @@ On OSX:  ~/Documents/Arduino/libraries.
 In the installed AsyncIOT library folder there is an example for testing this proposed tool called AsyncIOT.ino.
 
 Other possible applications: post data to an IoT cloud server, modify operating parameters of the ESP microcontroller in 
-real time, such as duty cycle PWM, online processing and calculators, etc..
+real time, such as duty cycle PWM, online processing and calculators, etc.. Tutorial: https://youtu.be/UKPWt2sKoHA.
+
 *****************************************************************************************************************************/
  
 #ifndef AsyncIOT_h
