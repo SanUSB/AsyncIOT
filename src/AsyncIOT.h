@@ -146,6 +146,7 @@ class AsyncIOTClass{
                   s=start_html_gz[0];                 
                   serv.putUInt("c", s);     
                   WiFi.setHostname("sanusb.org");
+                  Serial.println(WiFi.getHostname());
                   #endif
             }
 
