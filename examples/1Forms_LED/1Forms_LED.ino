@@ -1,5 +1,5 @@
 /*
-Exemplo 1Form_LED.ino (Comutar pino do ESP32 eESP8266 através de página html e Javascript na memória SPIFFS): https://youtu.be/5d9Z8eptu8A  
+Exemplo 1Form_LED.ino (Comutar pino do ESP32 e ESP8266 através de página html e Javascript na memória SPIFFS): https://youtu.be/5d9Z8eptu8A  
 Esse exemplo faz parte de mais uma aplicação Async com código disponível nos exemplos do repositório https://github.com/SanUSB/AsyncIOT onde 
 todas as bibliotecas Async descritas no README do repositório devem ser previamente instaladas.
  */
