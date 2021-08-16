@@ -22,8 +22,8 @@ todas as bibliotecas Async descritas no README do repositório devem ser previam
 
 AsyncWebServer server(80);
 
-const char* ssid     = "SanUSB";
-const char* password = "sanusblaese19";
+const char* ssid     = "************";
+const char* password = "************";
 const char* hostname = "ESP_SanUSB";
 
 void setup(void)
