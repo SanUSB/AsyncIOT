@@ -12,11 +12,12 @@ todas as bibliotecas Async descritas no README do repositório devem ser previam
     #include <WiFi.h>
     #include <AsyncTCP.h>
     #include <SPIFFS.h>
+#endif
     const int LED_PIN = 2;
     const int freq = 5000;
     const int ledChannel = 0;
     const int resolution = 8;
-#endif
+
 
 #include <ESPAsyncWebServer.h>
 
